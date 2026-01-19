@@ -1,0 +1,63 @@
+```groovy
+// Problem: To develop a social media analytics tool, we need a solid foundation with the necessary dependencies
+// to manage and analyze data from multiple social media platforms. The build.gradle file is essential 
+// for defining the application properties and dependencies that will help us achieve these functionalities.
+
+apply plugin: 'com.android.application'
+
+android {
+    // Solution: Setting up the application ID gives a unique identity to the app, essential for distribution
+    // and access to the Google Play Store. This structure is fundamental for a professional application.
+    compileSdkVersion 33
+
+    defaultConfig {
+        applicationId "com.madhub.socialmediaanalytics"
+        minSdkVersion 21 // Problem: Lower versions restrict access to modern features
+        targetSdkVersion 33 // Solution: Targeting the latest SDK ensures we utilize the latest features and optimizations
+        versionCode 1
+        versionName "1.0.0"
+        // Defines language support, aiming for user engagement through English content
+        resConfigs "en"
+    }
+
+    // Problem: To enhance the user experience, we need to optimize build settings for performance
+    buildTypes {
+        release {
+            minifyEnabled false // Solution: Keeping it false for easier debugging during development
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+// Problem: Social media analytics tools require handling networking and data processing efficiently
+// Solution: Adding required dependencies to enable networking, UI development, and data processing
+
+dependencies {
+    // This dependency solves the problem of making network requests to social media APIs for data collection
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0' // Retrofit for REST API integration
+
+    // This dependency addresses the challenge of parsing JSON data returned by social media APIs
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0' // Gson converter for Retrofit
+
+    // This resolves the limitation of multithreading during network requests, ensuring smooth performance
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3' // OkHttp for efficient HTTP client
+
+    // This library provides tools for scheduling and automating tasks in the background
+    implementation 'androidx.work:work-runtime-ktx:2.7.1' // WorkManager for background tasks
+
+    // Problem: The application must provide a smooth user interface
+    // Solution: Adding dependency for UI components like RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.2.1' // RecyclerView for displaying lists
+
+    // This dependency supports analytics to track user interactions and improve app performance
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.0.0' // Firebase for analytics
+
+    // This library addresses UI design problems with Material components
+    implementation 'com.google.android.material:material:1.6.1' // Material Design components for better UI
+
+    // Additional libraries can be added here as needed for enhanced functionality
+}
+
+// Problem: To ensure that the application can run on various platforms, we need to focus on the Android 
+// platform capabilities, including cloud and emulator support as provided by MadHub.
+```
